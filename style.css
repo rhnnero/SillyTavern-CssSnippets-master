@@ -1,0 +1,312 @@
+@import url('UserSettings.style.css');
+@import "hljs.css";
+.prism-code-editor{overflow:auto;display:grid;background:var(--editor__bg);line-height:1.4;--_pse: var(--padding-inline, .75em);--_ns: var(--number-spacing, .75em);--padding-left: var(--_pse);scroll-padding-left:var(--padding-left);-webkit-user-select:none;user-select:none;isolation:isolate;white-space:pre}.show-line-numbers{--padding-left: calc(var(--_pse) + var(--number-width) + var(--_ns));grid:1fr / 0 1fr}.pce-wrapper{margin:.5em 0;position:relative;pointer-events:none;-webkit-text-size-adjust:none;text-size-adjust:none}.prism-code-editor textarea{all:unset;box-sizing:border-box;height:100%;width:100%;color:#0000;-webkit-user-select:auto;user-select:auto;overflow:hidden;pointer-events:auto;padding:0 var(--_pse) 0 var(--padding-left)}.pce-no-selection textarea:focus{z-index:1}.pce-line{padding:0 var(--_pse) 0 0;margin:0 0 0 var(--padding-left);position:relative}.show-line-numbers .pce-line:before{content:attr(data-line);display:inline-block;margin:0 0 0 calc(-1 * var(--padding-left));padding:0 var(--_ns) 0 0;box-sizing:border-box;color:var(--editor__line-number);text-align:end}.show-line-numbers:before{content:"";background:inherit;pointer-events:none}.show-line-numbers:before,.pce-line:before{position:sticky;height:100%;z-index:2;left:0;width:var(--padding-left)}.pce-wrap .pce-line:before{position:absolute}.pce-overlays,div.pce-overlays>*,.pce-no-selection .active-line:after,.active-line.match-highlight:after{content:"";position:absolute;top:0;right:0;bottom:0;left:0}.active-line:after{border:var(--editor__border-highlight);background:var(--editor__bg-highlight);z-index:-2}.pce-wrap{white-space:pre-wrap;word-break:break-word}.selection-matches span{background:var(--editor__bg-selection-match)}.pce-nowrap .active-bracket{display:inline-block}
+
+.prism-code-editor{caret-color:#aeafad;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;--editor__bg: #1e1e1e;--widget__border: #444;--widget__bg: #1e1e1e;--widget__color: #ccc;--widget__color-active: #fff;--widget__color-options: #aaa;--widget__bg-input: #262626;--widget__bg-hover: #2e2e2e;--widget__bg-active: #336699;--widget__focus-ring: #5299e0;--search__bg-find: #eb5e0054;--widget__bg-error: #4d1919;--widget__error-ring: #cc0000;--editor__border-highlight: 2px solid #282828;--editor__bg-selection-match: #add6ff26;--editor__line-number: #888;--editor__bg-scrollbar: 0, 0%, 50%;--editor__bg-fold: #c5c5c5;--bg-guide-indent: #9994;--pce-ac-icon-class: #ee9d28;--pce-ac-icon-enum: #ee9d28;--pce-ac-icon-function: #b180d7;--pce-ac-icon-interface: #75beff;--pce-ac-icon-variable: #75beff;color-scheme:dark}.match-highlight{--editor__bg-highlight: #282828}.prism-code-editor textarea::selection{background:#264f78;color:#0000}.pce-matches .match{--search__bg-find: #675451}.active-line{--editor__line-number: #ccc}.guide-indents .active{--bg-guide-indent: #eee6}[class*=language-]{color:#9cdcfe}.token.namespace{opacity:.7}.token.comment,.token.prolog,.token.blockquote.punctuation{color:#6a9955}.pce-tooltip,.token.punctuation,.token.attr-equals,.token.operator,.token.combinator,.token.plain-text{color:#d4d4d4}.token.number,.token.symbol,.token.inserted,.token.unit{color:#b5cea8}.token.regex,.language-regex,.token.regex .punctuation,.token.group,.token.string,.token.string-property.property,.token.char,.token.deleted{color:#ce9178}.url .token.string.url{text-decoration:underline}.token.doctype,.token.operator.arrow,.token.keyword,.token.important,.token.boolean,.token.tag,.token.entity,.token.regex-flags{color:#569cd6}.token.atrule .token.rule{color:#c586c0}.token.function,.token.alternation{color:#dcdcaa}.token.italic{font-style:italic}.token.strike{text-decoration:line-through}.token.class-name,.token.builtin,.token.maybe-class-name{color:#4ec9b0}.token.doctype .name,.token.atrule,.token.atrule .url,.token.property,.token.variable,.token.parameter,.token.interpolation,.token.attr-name{color:#9cdcfe}.token.selector,.token.escape{color:#d7ba7d}.token.tag>.punctuation,.token.doctype>.punctuation,.token.cdata{color:gray}.token.attr-value,.token.attr-value>.punctuation,.token.color{color:#ce9178}.token.namespace{color:#4ec9b0}.token.constant{color:#4fc1ff}.token.char-set,.token.regex .operator{color:#d16969}.language-markup,.language-markdown,.language-md,.language-html,.language-xml,.language-svg,.language-text,.language-css,.language-sass,.language-scss{color:#d4d4d4}.token.important.title .punctuation,.token.list.punctuation,.language-markdown .token.bold *{color:#569cd6}.language-markdown .token.code>.punctuation,.language-markdown .token.code.keyword{color:#d4d4d4}.language-markdown .token.url .content,.language-markdown .token.code-snippet.keyword,.token.url-reference .variable{color:#ce9178}.token.quantifier{color:#d7ba7d}.token.keyword.module,.token.keyword.control-flow,.token.keyword-if,.token.keyword-else,.token.keyword-return,.token.keyword-switch,.token.keyword-case,.token.keyword-default,.token.keyword-import,.token.keyword-from,.token.keyword-export,.token.keyword-as,.token.keyword-for,.token.keyword-while,.token.keyword-break,.token.keyword-continue,.token.keyword-try,.token.keyword-catch,.token.keyword-finally,.token.keyword-throw,.token.keyword-yield,.token.keyword-await{color:#c586c0}.token.bracket-level-0,.token.bracket-level-3,.token.bracket-level-6,.token.bracket-level-9{color:gold}.token.bracket-level-1,.token.bracket-level-4,.token.bracket-level-7,.token.bracket-level-10{color:orchid}.token.bracket-level-2,.token.bracket-level-5,.token.bracket-level-8,.token.bracket-level-11{color:#179fff}.token.interpolation-punctuation{color:#569cd6}.token.bracket-error{color:#ff1212cc}.token.markup-bracket{color:inherit}.active-bracket{box-shadow:inset 0 0 0 1px #888,inset 0 0 0 9in #0064001a}.active-tagname,.word-matches span{background:#575757b8}
+
+html > body #CustomCSS-block > h4 {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+}
+html > body.csss--body {
+  height: 100vh;
+}
+html > body.csss--body #csss--root {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+html > body.csss--body .csss--isExporting #csss--head > .csss--actions > #csss--collapse,
+html > body.csss--body .csss--isExporting #csss--head > .csss--actions > #csss--import {
+  opacity: 0.25;
+  pointer-events: none;
+}
+html > body.csss--body .csss--isExporting .csss--snippet * {
+  pointer-events: none;
+}
+html > body.csss--body .csss--isExporting .csss--snippet.csss--selected {
+  box-shadow: 0 0 20px var(--SmartThemeQuoteColor);
+}
+html > body.csss--body .csss--isCollapsed #csss--list {
+  gap: 0;
+}
+html > body.csss--body .csss--isCollapsed #csss--list > .csss--snippet > .csss--nameWrap {
+  flex: 1 1 auto;
+}
+html > body.csss--body .csss--isCollapsed #csss--list > .csss--snippet > .csss--nameWrap > .csss--activeWrap {
+  display: none;
+}
+html > body.csss--body .csss--isCollapsed #csss--list > .csss--snippet > .csss--contentWrap,
+html > body.csss--body .csss--isCollapsed #csss--list > .csss--snippet > .csss--actionsWrap {
+  display: none;
+}
+html > body.csss--body #csss--head {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  align-items: baseline;
+  position: sticky;
+  top: 0;
+  background-color: var(--greyCAIbg);
+  box-shadow: 0 0 3px black;
+  padding: 0.5em;
+  z-index: 1;
+}
+html > body.csss--body #csss--head > h4 {
+  flex: 0 0 auto;
+}
+html > body.csss--body #csss--head > .csss--actions {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 0.25em;
+  align-items: center;
+}
+html > body.csss--body #csss--head > .csss--actions > #csss--collapse,
+html > body.csss--body #csss--head > .csss--actions > #csss--import {
+  transition: 200ms;
+  opacity: 1;
+}
+html > body.csss--body #csss--head > .csss--actions > #csss--export {
+  transition: 200ms;
+}
+html > body.csss--body #csss--head > .csss--actions > #csss--export.csss--active {
+  background-color: var(--SmartThemeQuoteColor);
+}
+html > body.csss--body #csss--head > .csss--actions > #csss--import-file {
+  display: none;
+}
+html > body.csss--body #csss--head > .csss--actions > #csss--export-message {
+  flex: 1 1 auto;
+  font-size: smaller;
+}
+html > body.csss--body #csss--head > .csss--actions > #csss--export-selectAll,
+html > body.csss--body #csss--head > .csss--actions > #csss--export-message,
+html > body.csss--body #csss--head > .csss--actions > #csss--export-copy,
+html > body.csss--body #csss--head > .csss--actions > #csss--export-download {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  flex: 0 0 auto;
+  overflow: hidden;
+  pointer-events: none;
+  transition: 200ms;
+}
+html > body.csss--body #csss--head > .csss--actions > #csss--export-selectAll.csss--active,
+html > body.csss--body #csss--head > .csss--actions > #csss--export-message.csss--active,
+html > body.csss--body #csss--head > .csss--actions > #csss--export-copy.csss--active,
+html > body.csss--body #csss--head > .csss--actions > #csss--export-download.csss--active {
+  opacity: 1;
+  width: auto;
+  height: auto;
+  pointer-events: all;
+}
+html > body.csss--body #csss--head > .csss--actions > #csss--export-selectAll.csss--active#csss--export-message,
+html > body.csss--body #csss--head > .csss--actions > #csss--export-message.csss--active#csss--export-message,
+html > body.csss--body #csss--head > .csss--actions > #csss--export-copy.csss--active#csss--export-message,
+html > body.csss--body #csss--head > .csss--actions > #csss--export-download.csss--active#csss--export-message {
+  flex: 1 1 auto;
+}
+html > body.csss--body #csss--head > .csss--actions > #csss--search {
+  flex: 1 1 auto;
+}
+html > body.csss--body #csss--head > .csss--actions > #csss--search > #csss--searchQuery {
+  width: 100%;
+}
+html > body.csss--body #csss--list {
+  list-style: none;
+  padding: 0.5em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+html > body.csss--body #csss--list > .csss--snippet {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  align-items: baseline;
+}
+html > body.csss--body #csss--list > .csss--snippet:has(.csss--isDisabled:checked) {
+  opacity: 0.5;
+}
+html > body.csss--body #csss--list > .csss--snippet.csss--isHidden,
+html > body.csss--body #csss--list > .csss--snippet.csss--isFiltered {
+  display: none;
+}
+html > body.csss--body #csss--list > .csss--snippet.csss--isCollapsed > .csss--nameWrap {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+}
+html > body.csss--body #csss--list > .csss--snippet.csss--isCollapsed > .csss--nameWrap > .csss--activeWrap {
+  display: flex;
+}
+html > body.csss--body #csss--list > .csss--snippet.csss--isCollapsed > .csss--nameWrap > .csss--activeWrap > .flex-container {
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+html > body.csss--body #csss--list > .csss--snippet.csss--isCollapsed > .csss--nameWrap > .csss--activeWrap > .flex-container > .csss--text > .csss--full {
+  display: none;
+}
+html > body.csss--body #csss--list > .csss--snippet.csss--isCollapsed > .csss--contentWrap {
+  display: none;
+}
+html > body.csss--body #csss--list > .csss--snippet.csss--isCollapsed > .csss--actionsWrap {
+  align-self: baseline;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+html > body.csss--body #csss--list > .csss--snippet > .csss--dragWrap {
+  flex: 0 0 auto;
+}
+html > body.csss--body #csss--list > .csss--snippet > .csss--dragWrap > .drag-handle {
+  padding: 0.75em;
+}
+html > body.csss--body #csss--list > .csss--snippet > .csss--nameWrap {
+  flex: 0 0 auto;
+}
+html > body.csss--body #csss--list > .csss--snippet > .csss--nameWrap > .csss--activeWrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em;
+  justify-content: space-between;
+  padding: 0.5em;
+}
+html > body.csss--body #csss--list > .csss--snippet > .csss--nameWrap > .csss--activeWrap > .flex-container {
+  align-items: center;
+}
+html > body.csss--body #csss--list > .csss--snippet > .csss--nameWrap > .csss--activeWrap > .flex-container.csss--isUsed > .csss--text {
+  color: var(--SmartThemeQuoteColor);
+}
+html > body.csss--body #csss--list > .csss--snippet > .csss--contentWrap {
+  align-self: normal;
+  flex: 1 1 auto;
+  display: grid;
+  overflow: hidden;
+}
+html > body.csss--body #csss--list > .csss--snippet > .csss--actionsWrap {
+  align-self: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.5em;
+}
+html > body.csss--body #csss--list > .csss--snippet > .csss--actionsWrap > .csss--action {
+  width: 100%;
+}
+html > body.csss--body #csss--list > .csss--snippet > .csss--actionsWrap > .csss--ide.csss--isWatching {
+  animation-name: csss--pulse;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+}
+html > body.csss--body .csss--listActions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+html > body.csss--body > .csss--blocker {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+}
+html > body.csss--body > .csss--blocker > .csss--body {
+  gap: 0;
+  position: absolute;
+  inset: 0;
+  width: unset;
+  min-width: unset;
+  max-width: unset;
+  height: unset;
+  min-height: unset;
+  max-height: unset;
+}
+html > body.csss--body > .csss--blocker > .csss--body.csss--expand {
+  display: grid;
+  overflow: hidden;
+  grid-template-rows: 1fr 0fr;
+}
+html > body.csss--body > .csss--blocker > .csss--body.csss--themes {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--SmartThemeChatTintColor);
+}
+html > body.csss--body > .csss--blocker > .csss--body .csss--editor {
+  display: grid;
+  overflow: hidden;
+}
+html > body.csss--body > .csss--blocker > .csss--body .csss--editor textarea {
+  margin: 0;
+  text-shadow: none;
+}
+html > body.csss--body > .csss--filterMenu {
+  position: absolute;
+  z-index: 10;
+}
+html > body.csss--body > .csss--filterMenu > .csss--item {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  padding: 0.5em;
+  align-items: baseline;
+}
+.csss--themes .csss--themesHead {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+  background-color: var(--SmartThemeBlurTintColor);
+}
+.csss--themes .csss--themesContent {
+  flex: 1 1 auto;
+  overflow: auto;
+}
+.csss--themes .csss--themesItem {
+  display: flex;
+  gap: 0.5em;
+  align-items: baseline;
+}
+html > body.csss--body .csss--contentSyntax {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  border: none;
+  cursor: pointer;
+  height: 0;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 0;
+  min-width: 100%;
+}
+html > body.csss--body .csss--contentSyntax:has(~ .csss--content:disabled) > .csss--contentSyntaxInner {
+  opacity: 0.5;
+}
+html > body.csss--body .csss--contentSyntaxInner {
+  border: 1px solid var(--SmartThemeBorderColor);
+  border-radius: 5px;
+  display: block;
+  font-family: var(--monoFontFamily, monospace);
+  font-size: smaller;
+  max-height: unset;
+  line-height: 1.2;
+  margin: 0;
+  overflow: auto;
+  padding: 0;
+  resize: none;
+  tab-size: 2;
+  white-space: pre;
+}
+@keyframes csss--pulse {
+  0% {
+    filter: invert(0);
+  }
+  50% {
+    filter: invert(1);
+  }
+  100% {
+    filter: invert(0);
+  }
+}

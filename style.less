@@ -1,0 +1,347 @@
+@import (inline) url("./lib/prism-code-editor/layout.css");
+@import (inline) url("./lib/prism-code-editor/themes/vs-code-dark.css");
+@import url('./UserSettings.style.css');
+
+html > body {
+	#CustomCSS-block > h4 {
+		display: flex;
+		gap: 1em;
+		align-items: baseline;
+	}
+}
+
+html > body.csss--body {
+	height: 100vh;
+	#csss--root {
+		width: 100%;
+		height: 100vh;
+		overflow: auto;
+	}
+
+	.csss--isExporting {
+		#csss--head {
+			> .csss--actions {
+				> #csss--collapse,
+				> #csss--import
+				{
+					opacity: 0.25;
+					pointer-events: none;
+				}
+			}
+		}
+		.csss--snippet {
+			* { pointer-events: none; }
+			&.csss--selected {
+				box-shadow: 0 0 20px var(--SmartThemeQuoteColor);
+			}
+		}
+	}
+
+	.csss--isCollapsed {
+		#csss--list {
+			gap: 0;
+			> .csss--snippet {
+				> .csss--nameWrap {
+					flex: 1 1 auto;
+					> .csss--activeWrap {
+						display: none;
+					}
+				}
+				> .csss--contentWrap,
+				> .csss--actionsWrap {
+					display: none;
+				}
+			}
+		}
+	}
+
+	#csss--head {
+		display: flex;
+		flex-direction: row;
+		gap: 2em;
+		align-items: baseline;
+		position: sticky;
+		top: 0;
+		background-color: var(--greyCAIbg);
+		box-shadow: 0 0 3px black;
+		padding: 0.5em;
+		z-index: 1;
+		> h4 { flex: 0 0 auto; }
+		> .csss--actions {
+			flex: 1 1 auto;
+			display: flex;
+			flex-direction: row;
+			gap: 0.25em;
+			align-items: center;
+			> #csss--collapse,
+			> #csss--import
+			{
+				transition: 200ms;
+				opacity: 1;
+			}
+			> #csss--export {
+				transition: 200ms;
+				&.csss--active {
+					background-color: var(--SmartThemeQuoteColor);
+				}
+			}
+			> #csss--import-file {
+				display: none;
+			}
+			> #csss--export-message {
+				flex: 1 1 auto;
+				font-size: smaller;
+			}
+			> #csss--export-selectAll,
+			> #csss--export-message,
+			> #csss--export-copy,
+			> #csss--export-download
+			{
+				opacity: 0;
+				width: 0;
+				height: 0;
+				flex: 0 0 auto;
+				overflow: hidden;
+				pointer-events: none;
+				transition: 200ms;
+				&.csss--active {
+					opacity: 1;
+					width: auto;
+					height: auto;
+					pointer-events: all;
+					&#csss--export-message {
+						flex: 1 1 auto;
+					}
+				}
+			}
+			> #csss--search {
+				flex: 1 1 auto;
+				> #csss--searchQuery {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	#csss--list {
+		list-style: none;
+		padding: 0.5em;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+
+		> .csss--snippet {
+			display: flex;
+			flex-direction: row;
+			gap: 0.5em;
+            align-items: baseline;
+			&:has(.csss--isDisabled:checked) {
+				opacity: 0.5;
+			}
+			&.csss--isHidden,
+			&.csss--isFiltered
+			{
+				display: none;
+			}
+			&.csss--isCollapsed {
+				> .csss--nameWrap {
+					flex: 1 1 auto;
+					display: flex;
+					flex-direction: row;
+					> .csss--activeWrap {
+						display: flex;
+						> .flex-container {
+							flex-direction: row;
+							flex-wrap: nowrap;
+							> .csss--text > .csss--full {
+								display: none;
+							}
+						}
+					}
+				}
+				> .csss--contentWrap {
+					display: none;
+				}
+				> .csss--actionsWrap {
+                    align-self: baseline;
+					grid-template-columns: 1fr 1fr 1fr 1fr;
+				}
+			}
+
+			> .csss--dragWrap {
+				flex: 0 0 auto;
+				> .drag-handle {
+					padding: 0.75em;
+				}
+			}
+
+			> .csss--nameWrap {
+				flex: 0 0 auto;
+				> .csss--activeWrap {
+					display: grid;
+					grid-template-columns: 1fr 1fr 1fr;
+					gap: 1em;
+					justify-content: space-between;
+					padding: 0.5em;
+					> .flex-container {
+						align-items: center;
+						&.csss--isUsed > .csss--text {
+							color: var(--SmartThemeQuoteColor);
+						}
+					}
+				}
+			}
+
+			> .csss--contentWrap {
+                align-self: normal;
+				flex: 1 1 auto;
+				display: grid;
+				overflow: hidden;
+			}
+
+			> .csss--actionsWrap {
+				align-self: flex-start;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				column-gap: 0.5em;
+				> .csss--action {
+					width: 100%;
+				}
+				> .csss--ide.csss--isWatching {
+					animation-name: csss--pulse;
+					animation-duration: 2s;
+					animation-timing-function: linear;
+					animation-delay: 0s;
+					animation-iteration-count: infinite;
+				}
+			}
+		}
+	}
+
+	.csss--listActions {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	> .csss--blocker {
+		position: absolute;
+		inset: 0;
+		z-index: 10;
+		backdrop-filter: blur(4px);
+
+		> .csss--body {
+            gap: 0;
+			position: absolute;
+			inset: 0;
+			width: unset;
+			min-width: unset;
+			max-width: unset;
+			height: unset;
+			min-height: unset;
+			max-height: unset;
+			&.csss--expand {
+				display: grid;
+				overflow: hidden;
+				grid-template-rows: 1fr 0fr;
+			}
+			&.csss--themes {
+				display: flex;
+				flex-direction: column;
+
+                background-color: var(--SmartThemeChatTintColor);
+			}
+
+			.csss--editor {
+                display: grid;
+                overflow: hidden;
+                textarea {
+                    margin: 0;
+                    text-shadow: none;
+                }
+            }
+		}
+	}
+
+	> .csss--filterMenu {
+		position: absolute;
+		z-index: 10;
+		> .csss--item {
+			display: flex;
+			flex-direction: row;
+			gap: 0.5em;
+			padding: 0.5em;
+			align-items: baseline;
+		}
+	}
+}
+
+.csss--themes {
+	.csss--themesHead {
+		display: flex;
+		gap: 1em;
+		align-items: baseline;
+        background-color: var(--SmartThemeBlurTintColor);
+	}
+	.csss--themesContent {
+		flex: 1 1 auto;
+		overflow: auto;
+	}
+	.csss--themesItem {
+		display: flex;
+		gap: 0.5em;
+		align-items: baseline;
+	}
+}
+
+
+html > body.csss--body {
+	.csss--contentSyntax {
+		grid-column: 1;
+		grid-row: 1;
+
+        display: grid;
+
+		border: none;
+        cursor: pointer;
+		height: 0;
+		min-height: 100%;
+		margin: 0;
+		overflow: hidden;
+		padding: 0;
+		width: 0;
+		min-width: 100%;
+		&:has(~ .csss--content:disabled) > .csss--contentSyntaxInner {
+			opacity: 0.5;
+		}
+	}
+	.csss--contentSyntaxInner {
+		border: 1px solid var(--SmartThemeBorderColor);
+		border-radius: 5px;
+        display: block;
+		font-family: var(--monoFontFamily, monospace);
+        font-size: smaller;
+		max-height: unset;
+		line-height: 1.2;
+		margin: 0;
+        overflow: auto;
+		padding: 0;
+		resize: none;
+		tab-size: 2;
+		white-space: pre;
+	}
+}
+@keyframes csss--pulse {
+	0% {
+		filter: invert(0);
+	}
+	50% {
+		filter: invert(1);
+	}
+	100% {
+		filter: invert(0);
+	}
+}
+
+@import "./hljs.css";

@@ -1,0 +1,53 @@
+body.csss--body {
+	--csss--color-selector: rgb(206 186 129);
+	--csss--color-attribute: rgb(180 220 252);
+	--csss--color-variable: rgb(180 220 252);
+	--ac-style-color-border: rgba(69 69 69 / 1);
+    --ac-style-color-background: rgba(32 32 32 / 1);
+    --ac-style-color-text: rgba(204 204 204 / 1);
+    --ac-style-color-matchedBackground: rgba(0 0 0 / 0);
+    --ac-style-color-matchedText: rgba(108 171 251 / 1);
+    --ac-style-color-selectedBackground: rgba(32 57 92 / 1);
+    --ac-style-color-selectedText: rgba(255 255 255 / 1);
+    --ac-style-color-hoveredBackground: rgba(43 45 46 / 1);
+    --ac-style-color-hoveredText: rgba(204 204 204 / 1);
+    --ac-style-color-argName: rgba(171 209 239 / 1);
+    --ac-style-color-type: rgba(131 199 177 / 1);
+    --ac-style-color-cmd: rgba(219 219 173 / 1);
+    --ac-style-color-symbol: rgba(115 156 211 / 1);
+    --ac-style-color-string: rgba(190 146 122 / 1);
+    --ac-style-color-number: rgba(188 205 170 / 1);
+    --ac-style-color-variable: rgba(131 193 252 / 1);
+    --ac-style-color-variableLanguage: rgba(98 160 251 / 1);
+    --ac-style-color-punctuation: rgba(242 214 48 / 1);
+    --ac-style-color-punctuationL1: rgba(195 118 210 / 1);
+    --ac-style-color-punctuationL2: rgba(98 160 251 / 1);
+    --ac-style-color-currentParenthesis: rgba(195 118 210 / 1);
+    --ac-style-color-comment: rgba(122 151 90 / 1);
+}
+body.csss--body {
+	/* comments */
+	.hljs-comment { color: var(--ac-style-color-comment); }
+	/* #id selector */
+	.hljs-selector-id { color: var(--ac-style-color-variableLanguage); }
+	/* tag name */
+	.hljs-selector-tag { color: var(--ac-style-color-type); }
+	/* .class selector */
+	.hljs-selector-class { color: var(--csss--color-selector); }
+	/* :pseudo selector */
+	.hljs-selector-pseudo { color: var(--ac-style-color-punctuation); }
+	/* attribute name */
+	.hljs-attribute { color: var(--ac-style-color-argName); }
+	/* variable name */
+	.hljs-attr { color: var(--ac-style-color-variable); }
+	/* number */
+	.hljs-number { color: var(--ac-style-color-number); }
+	/* string */
+	.hljs-string { color: var(--ac-style-color-string); }
+	/* meta (!important) */
+	.hljs-meta { color: var(--ac-style-color-symbol); }
+	/* keyword (@media, @import) */
+	.hljs-keyword { color: var(--ac-style-color-currentParenthesis); font-weight: bold; }
+	/* function (var(), calc(), ...) */
+	.hljs-built_in { color: var(--ac-style-color-cmd); }
+}

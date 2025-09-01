@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sillytavern - CSS 代码片段</title>
+</head>
+<body>
+	<div id="csss--root">
+		<link rel="stylesheet" href="/scripts/extensions/third-party/SillyTavern-CssSnippets/style.css">
+		<link rel="stylesheet" href="/scripts/extensions/third-party/SillyTavern-CssSnippets/lib/prism-code-editor/autocomplete.css">
+		<link rel="stylesheet" href="/scripts/extensions/third-party/SillyTavern-CssSnippets/lib/prism-code-editor/autocomplete-icons.css">
+		<div id="csss--head">
+			<h4>CSS 代码片段</h4>
+			<div class="csss--actions">
+				<div id="csss--collapse" class="csss--action menu_button menu_button_icon fa-solid fa-angles-up" title="折叠代码片段"></div>
+
+				<input type="file" id="csss--import-file">
+				<div id="csss--import" class="csss--action menu_button menu_button_icon fa-solid fa-file-import" title="导入代码片段"></div>
+				<div id="csss--export" class="csss--action menu_button menu_button_icon fa-solid fa-file-export" title="导出代码片段"></div>
+				<div id="csss--export-selectAll" class="csss--action menu_button menu_button_icon fa-solid fa-check-double" title="切换全选"></div>
+				<div id="csss--export-message">点击代码片段进行选择/取消选择 | 已选择: <span id="csss--count">0</span></div>
+				<div id="csss--export-copy" class="csss--action menu_button menu_button_icon fa-solid fa-copy" title="复制到剪贴板"></div>
+				<div id="csss--export-download" class="csss--action menu_button menu_button_icon fa-solid fa-download" title="下载"></div>
+
+				<div id="csss--search"><input type="search" id="csss--searchQuery" class="text_pole" placeholder="搜索代码片段 (all: / content: / theme:)"></div>
+				<div id="csss--filter" class="csss--action menu_button menu_button_icon fa-solid fa-filter" title="过滤代码片段"></div>
+
+				<div id="csss--settings" class="csss--action menu_button menu_button_icon fa-solid fa-cog" title="设置"></div>
+			</div>
+		</div>
+		<ul id="csss--list">
+			<template id="csss--snippet">
+				<li class="csss--snippet">
+					<div class="csss--dragWrap">
+						<div class="drag-handle">☰</div>
+					</div>
+					<div class="csss--collapseWrap">
+						<div class="csss--collapse menu_button menu_button_icon fa-solid fa-angle-up" title="折叠"></div>
+					</div>
+					<div class="csss--nameWrap">
+						<input type="text" class="csss--name text_pole" placeholder="代码片段名称">
+						<div class="csss--activeWrap">
+							<label class="flex-container" title="禁用">
+								<input type="checkbox" class="csss--isDisabled">
+								<span class="csss--text">禁<span class="csss--full">用</span></span>
+							</label>
+							<label class="flex-container" title="用户间同步">
+								<input type="checkbox" class="csss--isSynced">
+								<span class="csss--text">同<span class="csss--full">步</span></span>
+							</label>
+							<div><!-- dummy to get GTC on next line --></div>
+							<label class="flex-container" title="全局">
+								<input type="checkbox" class="csss--isGlobal">
+								<span class="csss--text">全<span class="csss--full">局</span></span>
+							</label>
+							<label class="flex-container" title="主题">
+								<input type="checkbox" class="csss--isTheme">
+								<span class="csss--text">主<span class="csss--full">题</span></span>
+							</label>
+							<label class="flex-container" title="角色">
+								<input type="checkbox" class="csss--isChat">
+								<span class="csss--text">角<span class="csss--full">色</span></span>
+							</label>
+						</div>
+					</div>
+					<div class="csss--contentWrap">
+						<pre class="csss--contentSyntax"><code class="csss--contentSyntaxInner language-css"></code></pre>
+					</div>
+					<div class="csss--actionsWrap">
+						<div class="csss--action csss--max menu_button menu_button_icon fa-solid fa-maximize" title="展开编辑器"></div>
+						<div class="csss--action csss--ide menu_button menu_button_icon fa-solid fa-code" title="在外部编辑器中打开"></div>
+						<div class="csss--action csss--themes menu_button menu_button_icon fa-solid fa-palette" title="分配的主题和角色"></div>
+						<div class="csss--action csss--remove menu_button menu_button_icon fa-solid fa-trash redWarningBG" title="删除CSS代码片段"></div>
+					</div>
+				</li>
+			</template>
+		</ul>
+		<div class="csss--listActions">
+			<div class="csss--add menu_button menu_button_icon fa-solid fa-plus" id="csss--add" title="添加代码片段"></div>
+		</div>
+	</div>
+</body>
+</html>
